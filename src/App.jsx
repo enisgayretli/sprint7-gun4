@@ -1,10 +1,21 @@
 import './App.css'
-import Login from './components/Login'
+import Login from './components/Login';
+import Success from './components/Success';
 
+import { Switch, Route } from 'react-router-dom';
 function App() {
 
   return (
-      <Login />
+      <>     
+       <Switch>
+        <Route exact path="/">
+         <Login />
+        </Route>
+        <Route path="/success">
+          <Success />
+        </Route>
+       </Switch>
+      </>
   )
 }
 
