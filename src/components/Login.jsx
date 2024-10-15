@@ -16,7 +16,7 @@ const initialValues = {
     terms: false
 };
 
-const errorMessages = {
+export const errorMessages = {
     email: "Gecerli bir email giriniz",
     password: "En az 8 karakter, en az bir buyuk harf, en az 1 sembol, en az bir rakam icermelidir",
     terms: "Sartlar kabul edilmedilir"
@@ -120,8 +120,9 @@ export default function Login(){
                         onChange={handleChange}
                         value={formData.email}
                         invalid={errors.email}
+                        data-cy="email-input"
                     />
-                    {errors.email && (<FormFeedback>
+                    {errors.email && (<FormFeedback data-cy="error-message">
                         {errorMessages.email}
                     </FormFeedback>)
                     }
@@ -142,8 +143,9 @@ export default function Login(){
                     onChange={handleChange}
                     value={formData.password}
                     invalid={errors.password}
+                    data-cy="password-input"
                     />
-                    {errors.password && (<FormFeedback>
+                    {errors.password && (<FormFeedback data-cy="error-message">
                         {errorMessages.password}
                     </FormFeedback>)
                     }
@@ -157,8 +159,9 @@ export default function Login(){
                         checked={formData.terms}
                         onChange={handleChange}
                         invalid={errors.terms}
+                        data-cy="terms-checkbox"
                     />
-                    {errors.terms && (<FormFeedback>
+                    {errors.terms && (<FormFeedback data-cy="error-message">
                         {errorMessages.terms}
                     </FormFeedback>)
                     }
@@ -169,7 +172,7 @@ export default function Login(){
                         Sartlari kabul et
                     </Label>
                 </FormGroup>
-                <Button disabled={!isValid}>
+                <Button disabled={!isValid} data-cy="submit-button">
                     Login
                 </Button>
             </Form>
